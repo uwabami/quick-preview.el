@@ -65,7 +65,7 @@
            "org.gnome.NautilusPreviewer"    
            "ShowFile"
            :string (concat (when (file-exists-p filename) "file://") filename)
-           :int32 (string-to-number (frame-parameter nil 'window-id))
+           :int32 (string-to-number (if window-system (frame-parameter nil 'window-id) "0"))
            :boolean t)
         (error (concat "command not found :"
                        (symbol-name quick-preview-method))))
